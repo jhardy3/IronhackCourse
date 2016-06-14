@@ -1,0 +1,63 @@
+class Blog
+
+  def initialize(post_container = [])
+    @post_container = post_container
+  end
+
+  def post_formatter(post)
+    puts "Post #{post.title}"
+    puts "**************"
+    puts post.text
+    puts "________________"
+  end
+
+  def publish_front_page
+    #order by date here
+    #Date Format MM/DD/YYYY
+    @post_container.sort do |first_post, second_post|
+      first_post.total_date <=> second_post.total_date
+    end
+    @post_container.each do |post|
+      post_formatter(post)
+    end
+  end
+
+  def add_post(post)
+    @post_container.push(post)
+  end
+
+end
+
+class Post
+
+  def initialize(title, date, text)
+    @title = title
+    @date = date
+    @text = text
+  end
+
+  def total_date
+    date_component = date.split"/"
+    date_numbers = date_component.map { |num| num.to_i }
+    if date_numbers[0] == 1 || date_numbers[0] == 3 || date_numbers[0] == 5
+       || date_numbers[0] == 7 || date_numbers[0] == 8
+        || date_numbers[0] == 10, 12
+      month_days = date_numbers[0] * 31
+    elsif date_numbers[0] == 4 || date_numbers[0] == 6 || date_numbers[0] = 9
+      || date_numbers[0] == 11
+      month_days = date_numbers[0] * 30
+    else
+      month_days = date_numbers[0] * 28
+    end
+    year_days = date_numbers[2] * 365
+    days = date_numbers[1] + month_days + year_days
+  end
+
+end
+
+blog = Blog.new
+blog.add_post Post.new("Post 1, 11/12/1994")
+blog.add_post Post.new("Post 2, 11/12/1993")
+blog.add_post Post.new("Post 3, 11/12/1992")
+
+blog.publish_front_page
