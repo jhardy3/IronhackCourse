@@ -1,0 +1,67 @@
+#define a room class
+
+class room
+
+  attr_accessor :north_room, :south_room, :east_room, :west_room
+
+  def initialize(room_name, room_definition)
+    @room_name = room_name
+    @room_definition = room_definition
+    @north_room = north_room = 0
+    @south_room = south_room = 0
+    @east_room = east_room = 0
+    @west_room = west_room = 0
+  end
+
+  def connect_room(room, direction)
+      if direction == "N" && room.south_room == 0
+        room.south_room = self
+        @north_room = room
+      elsif direction == "S" && room.north_room == 0
+        room.north_room = self
+        @south_room = room
+      elsif direction == "W" && room.east_room == 0
+        room.east_room = self
+        @west_room = room
+      elsif direction == "E" && room.west_room == 0
+        room.west_room = self
+        @east_room = room
+      else
+        puts "Invalid input or room is already connected!"
+      end
+  end
+
+  def room_description
+    "You are in #{room_name}. #{room_description}."
+  end
+
+  def room_connection_description
+    return_str = "#{room_description}\n"
+    if @north_room != 0
+      return_str += " N "
+    end
+    if @south_room != 0
+      return_str += " S "
+    end
+    if @west_room != 0
+      return_str += " W "
+    end
+    if @east_room != 0
+      return_str += " E "
+    end
+    return_str
+  end
+end
+
+roomOne = Room.new("Room One", "The Middle Room")
+roomTwo = Room.new("Room Two", "The Left Room")
+roomThree = Room.new("Room Three", "The Right Room")
+
+roomOne.connect_room(roomTwo, "W")
+roomOne.connect_room(roomThree, "E")
+
+roomOne.room_connection_description
+roomTwo.room_connection_description
+roomThree.room_connection_description
+
+#define a game class
