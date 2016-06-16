@@ -374,10 +374,7 @@ room_ten = Room.new("The Avenues", rm_10_msg)
 
 dangerous_room = DangerousRoom.new("The Track", "Back in my day...", dngr_1_msg, dngr_1_ans, dngr_1_fail)
 puzzle_room = PuzzleRoom.new("Craig's room", "A really stupid riddle is written on the wall", "Some like me hot, some like me cold, some like me mild, some like me bold ", "COFFEE")
-
 dangerous_room_two = DangerousRoom.new("Eduardo's Kicks", "Really nice shoes line the walls...", dngr_rm_2_msg, dngr_rm_2_ans, dngr_rm_2_fail)
-
-
 room_one.connect_room(room_two, "W")
 room_one.connect_room(room_three, "E")
 room_one.connect_room(room_four, "N")
@@ -391,9 +388,6 @@ room_eight.connect_room(puzzle_room, "W")
 room_six.connect_room(room_nine, "E")
 room_nine.connect_room(room_ten, "S")
 room_ten.connect_room(room_seven, "E")
-
-
-
 room_two.connect_room(dangerous_room_two, "S")
 
 

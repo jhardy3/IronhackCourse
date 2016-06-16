@@ -1,0 +1,12 @@
+class Vehicle
+
+def initialize
+
+end
+
+def make_noise
+
+end
+
+
+end
