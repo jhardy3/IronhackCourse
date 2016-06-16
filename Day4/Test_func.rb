@@ -4,8 +4,6 @@ def test_func
 end
 
 
-
-
 hash = {:test => test_func}
 
-hash[:test]
+# hash[:test]

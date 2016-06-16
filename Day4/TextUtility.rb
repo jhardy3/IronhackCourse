@@ -1,3 +1,22 @@
+class Session
+
+  def initialize(users)
+    @users = users
+  end
+
+  def mount_user
+    puts "Enter email: "
+    print("->")
+    email = gets.chomp
+
+    user = @users[email]
+    user.use_txt_utility
+
+  end
+
+end
+
+
 class User
   def initialize(authenticator, text_utility)
     @text_utility = text_utility
@@ -120,6 +139,19 @@ end
 
 authenticator = Authenticator.new("123", "Jake")
 text_util = TextUtility.new
-user = User.new(authenticator, text_util)
+jake = User.new(authenticator, text_util)
+authenticator = Authenticator.new("123", "Francesco")
+text_util = TextUtility.new
+francesco = User.new(authenticator, text_util)
+authenticator = Authenticator.new("123", "Jill")
+text_util = TextUtility.new
+jill = User.new(authenticator, text_util)
 
-user.use_txt_utility
+users = {
+  "jill@live.com" => jill,
+  "francesco@live.com" => francesco,
+  "jake@live.com" => jake
+}
+
+new_session = Session.new(users)
+new_session.mount_user
