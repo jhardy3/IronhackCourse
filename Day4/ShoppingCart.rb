@@ -11,10 +11,28 @@ class ShoppingCart
 
   def total
     total = 0
+    count = 0
     for item in @items.values do
-      total += item[:price].seasonal_price.to_i * item[:total].to_i
+      total += check_discount(@items.keys[count], item[:price].seasonal_price.to_i, item[:total].to_i)
+      count += 1
     end
     puts total
+  end
+
+  def check_discount(item, price, total)
+    if :apples
+      if total > 1
+        apple_div = total / 2
+        apple_rem = total % 2
+        price * apple_div + price * apple_rem
+      else
+        total * price
+      end
+    elsif :oranges
+
+    elsif :grapes
+    else
+    end
   end
 end
 

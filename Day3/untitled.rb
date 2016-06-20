@@ -16,20 +16,18 @@ class CarDealer
 	end
 
 	def cars
-		# puts "What kind of car are you looking for?"
-		# car_type = gets.chomp.to_sym
-		# puts @inventory
-		# reduced_string = @inventory[car_type].reduce("") do |concat_str, next_str|
-		# 	concat_str + " #{next_str},"
-		# end
+		puts "What kind of car are you looking for?"
+		car_type = gets.chomp.to_sym
+		puts @inventory
+		reduced_string = @inventory[car_type].reduce("") do |concat_str, next_str|
+			concat_str + " #{next_str},"
+		end
 
-		# puts "#{car_type}: #{reduced_string}"
+		puts "#{car_type}: #{reduced_string}"
 	end
 
 	def output_car_string
 
-		puts @inventory.keys[0]
-		puts @inventory.values
 
 		#Format car string
 		

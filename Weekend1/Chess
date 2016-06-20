@@ -1,0 +1,36 @@
+class Board
+
+
+
+end
+
+class Piece
+  def initialize
+
+  end
+
+end
+
+class Bishop
+
+end
+
+class King
+
+end
+
+class Queen
+
+end
+
+class Rook
+
+end
+
+class Pawn
+
+end
+
+class Knight
+
+end

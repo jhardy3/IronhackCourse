@@ -1,0 +1,19 @@
+class Calculator
+
+  def initialize()
+  end
+
+  def take_numbers(number)
+    number_clean = number.splice(" ")
+    number_array = number_clean.chars.to_a
+
+    place_holder = 0
+    number_array.each do |number|
+      if place_holder != 0 && number.to_i?
+        place_holder = place_holder * 10 + number
+      end
+    end
+
+
+  end
+end

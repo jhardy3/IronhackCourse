@@ -1,0 +1,9 @@
+class Lexiconomitron
+
+  def eat_t(input)
+    input_arr = input.downcase.spit("t")
+    input_arr.to_s
+  end
+
+
+end
