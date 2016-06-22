@@ -1,0 +1,26 @@
+<h1>Here are your tasks today:</h1>
+
+
+<ul>
+  <% @incomplete_tasks.each do |task| %>
+    <li> <%= task.content %> </li>
+    <form action="/complete_task/<%=task.id%>" method="POST">
+      <button type="submit">DO THIS NOW</button>
+    </form>
+  <% end %>
+</ul>
+
+<h1>Here are your completed tasks today:</h1>
+<ul>
+  <% @complete_tasks.each do |task| %>
+    <li> <%= task.content %> </li>
+    <form action="/complete_task/<%=task.id%>" method="POST">
+      <button type="submit">DO THIS NOW</button>
+    </form>
+  <% end %>
+</ul>
+
+<form action="/new_task" method="POST">
+  <input type="text" name="task_content" placeholder="new tasks">
+  <button type="submit">Submit New Task</button>
+</form>

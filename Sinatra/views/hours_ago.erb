@@ -1,0 +1,8 @@
+
+<% if @current_hour - @difference == 0 %>
+<h1> 24 </h1>
+<% elsif @current_hour - @difference < 1 %>
+<h1><%= (24 + (@current_hour - @difference)) % 24%> </h1>
+<% else %>
+<h1><%= (@current_hour - @difference) % 24%></h1>
+<% end %>
