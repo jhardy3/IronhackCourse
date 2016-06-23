@@ -44,7 +44,7 @@ class Board
       state = cell.regenerate
       # binding.pry
       array_done = check_neighbours(num_array)
-      new_dictionary[key] = Cell.new(cell.state, array_done , num_array)
+      new_dictionary[key] = Cell.new(state, array_done , num_array)
     end
     @cell_dictionary = new_dictionary
     display_board
@@ -58,12 +58,13 @@ class Board
         play
         puts ""
         puts ''
-        
+
         sleep 1
       end
   end
 
   def display_board
+
     count = 0
     @xy_array.each do |pair|
       count += 1
