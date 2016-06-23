@@ -1,0 +1,3 @@
+To run guard ~> bundle exec guard
+To run rspec ~> bundle exec rspec
+#important code snip ~> expect(calculator).to receive(:add).with(1,2).to eq(3)

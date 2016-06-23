@@ -1,0 +1,13 @@
+<h1>Testing...</h1>
+<%@blog.post_container.each_with_index do |post, index|%>
+  <a href="/post/<%=index%>"><%= post.title %></a>
+<% end %>
+
+<form action="/create_post/" method="POST">
+  <input type="text" name="title" placeholder="title">
+  <input type="text" name="content" placeholder="content">
+  <input type="text" name="date" placeholder="date">
+  <input type="text" name="author" placeholder="author">
+  <input type="text" name="category" placeholder="category">
+  <button type="submit">Add Post!</button>
+</form>
