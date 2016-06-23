@@ -28,7 +28,7 @@ class Board
     dictionary = {}
     xy_array.each do |pair|
       temp_num = "#{pair[0]}, #{pair[1]}"
-      dictionary[temp_num.to_sym] = Cell.new(0, [0,0,0,0,0,0,0,0], pair)
+      dictionary[temp_num.to_sym] = Cell.new(0, pair)
     end
     @cell_dictionary = dictionary
   end
@@ -44,28 +44,47 @@ class Board
       state = cell.regenerate
       # binding.pry
 
-      new_dictionary[key] = Cell.new(state, array_done, num_array)
+      new_dictionary[key] = Cell.new(state, num_array)
     end
     @cell_dictionary = new_dictionary
     display_board
   end
+  def create_living_cells(x, y)
+    @cell_dictionary["#{x}, #{y}".to_sym] = Cell.new(1, [x,y])
+  end
+  # 00 10 20 12 21
+
 
   def run_it
-      @cell_dictionary["2, 4".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,4])
-      @cell_dictionary["2, 5".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,5])
-      @cell_dictionary["2, 6".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,6])
-      @cell_dictionary["2, 7".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,7])
+    z = 5
+    a = 1 + z
+    b = z
+    c = 2 + z
+    d = 3 + z
+    e = 5 + z
+      create_living_cells(b,b)
+      create_living_cells(a,b)
+      create_living_cells(c,b)
+      create_living_cells(a,c)
+      create_living_cells(c,a)
 
-      @cell_dictionary["0, 0".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [0,0])
-      @cell_dictionary["0, 1".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [0,1])
-      @cell_dictionary["1, 0".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [1,0])
-      @cell_dictionary["1, 1".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [1,1])
+      # create_living_cells(1,1)
+      # create_living_cells(2,2)
+      # create_living_cells(3,3)
+      # create_living_cells(4,4)
+      # create_living_cells(5,5)
+      #
+      # create_living_cells(0,1)
+      # create_living_cells(0,2)
+      # create_living_cells(0,3)
+      # create_living_cells(0,4)
+      # create_living_cells(0,5)
+
+      display_board
+      sleep 1
       while 0 < 1
         play
-        puts ""
-        puts ''
-
-        sleep 0.5
+        sleep 1
       end
   end
 
@@ -93,7 +112,6 @@ class Board
         check_position(x - 1, y + 1),
         check_position(x + 1, y + 1),
         check_position(x + 1, y - 1)]
-        # binding.pry
       neighbour_arr
     end
 
@@ -109,10 +127,10 @@ end
 
 class Cell
   attr_accessor :state, :cell_position, :neighbours
-  def initialize(state, neighbours, cell_position)
+  def initialize(state, cell_position)
     @cell_position = cell_position
     @state = state # either 1 or 0 for alive or dead
-    @neighbours = neighbours # an array that represents the surrounding cells
+    @neighbours = [] # an array that represents the surrounding cells
   end
 
   def regenerate
@@ -141,31 +159,3 @@ end
 board = Board.new(10)
 board.create_board
 board.run_it
-
-
-
-
-# def check_neighbours
-#   x = @cell_position[0]
-#   y = @cell_position[1]
-#   neighbour_arr =
-#     [check_position(x - 1, y),
-#     check_position(x + 1, y),
-#     check_position(x, y - 1),
-#     check_position(x, y + 1),
-#     check_position(x - 1, y - 1),
-#     check_position(x - 1, y + 1),
-#     check_position(x + 1, y + 1),
-#     check_position(x + 1, y - 1)]
-#     binding.pry
-#   @neighbours = neighbour_arr
-# end
-#
-# def check_position(x, y)
-#   if @cell_dictionary["#{x}, #{y}".to_sym]
-#     cell = @cell_dictionary["#{x}, #{y}".to_sym]
-#     cell.state
-#   else
-#     0
-#   end
-# end
