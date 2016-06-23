@@ -37,34 +37,40 @@ class Board
     new_dictionary = {}
     @cell_dictionary.each_key do |key|
       cell = @cell_dictionary[key]
-      # new_key = key.slice(", ")
-      # array = new_key.split("")
       num_array = cell.cell_position
       # binding.pry
+      array_done = check_neighbours(num_array)
+      cell.neighbours = array_done
       state = cell.regenerate
       # binding.pry
-      array_done = check_neighbours(num_array)
-      new_dictionary[key] = Cell.new(state, array_done , num_array)
+
+      new_dictionary[key] = Cell.new(state, array_done, num_array)
     end
     @cell_dictionary = new_dictionary
     display_board
   end
 
   def run_it
-      @cell_dictionary["2, 4".to_sym] = Cell.new(1, [0,0,0,0,0,0,1,1], [2,4])
-      @cell_dictionary["2, 5".to_sym] = Cell.new(1, [0,0,0,0,0,0,1,1], [2,5])
-      @cell_dictionary["2, 6".to_sym] = Cell.new(1, [0,0,0,0,0,0,1,1], [2,6])
+      @cell_dictionary["2, 4".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,4])
+      @cell_dictionary["2, 5".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,5])
+      @cell_dictionary["2, 6".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,6])
+      @cell_dictionary["2, 7".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [2,7])
+
+      @cell_dictionary["0, 0".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [0,0])
+      @cell_dictionary["0, 1".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [0,1])
+      @cell_dictionary["1, 0".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [1,0])
+      @cell_dictionary["1, 1".to_sym] = Cell.new(1, [0,0,0,0,0,0,0,0], [1,1])
       while 0 < 1
         play
         puts ""
         puts ''
 
-        sleep 1
+        sleep 0.5
       end
   end
 
   def display_board
-
+    system("clear")
     count = 0
     @xy_array.each do |pair|
       count += 1
@@ -102,7 +108,7 @@ class Board
 end
 
 class Cell
-  attr_accessor :state, :cell_position
+  attr_accessor :state, :cell_position, :neighbours
   def initialize(state, neighbours, cell_position)
     @cell_position = cell_position
     @state = state # either 1 or 0 for alive or dead
