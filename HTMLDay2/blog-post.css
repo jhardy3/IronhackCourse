@@ -1,0 +1,29 @@
+.top-section {
+  padding-top: 70px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.input-fields li textarea {
+  width: 100%;
+  position: -20px;
+  padding-top: 10px;
+}
+
+.text-in-text {
+  position: 0px relative;
+  display: inline;
+}
+
+.in-text {
+  display: inline;
+  position: relative;
+}
+
+/*.form-control {
+  width: 80%;
+  float: right;
+}*/

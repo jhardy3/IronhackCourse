@@ -67,19 +67,7 @@ class Board
       create_living_cells(c,b)
       create_living_cells(a,c)
       create_living_cells(c,a)
-
-      # create_living_cells(1,1)
-      # create_living_cells(2,2)
-      # create_living_cells(3,3)
-      # create_living_cells(4,4)
-      # create_living_cells(5,5)
-      #
-      # create_living_cells(0,1)
-      # create_living_cells(0,2)
-      # create_living_cells(0,3)
-      # create_living_cells(0,4)
-      # create_living_cells(0,5)
-
+      
       display_board
       sleep 1
       while 0 < 1

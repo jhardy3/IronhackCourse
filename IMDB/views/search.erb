@@ -1,0 +1,7 @@
+<h1><%=@question%></h1>
+
+<%@movies.each do |movie| %>
+  <form action="/answer/<%=movie.id%>/<%=@answer%>" method="POST">
+  <button type="submit"><img src="<%=movie.poster%>" height="250" width="150"></button>
+  </form>
+<%end%>
