@@ -1,0 +1,25 @@
+.cell {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}
+
+.snake {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.purple {
+  background-color: purple;
+}

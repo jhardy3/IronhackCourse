@@ -1,0 +1,19 @@
+<h1>Hello Commerce!</h1>
+
+<form action="<%=new_product_path(@user.id)%>" method="POST">
+  <input type="Text" name="product[title]">
+  <input type="Text" name="product[description]">
+  <input type="Text" name="product[deadline]">
+  <input type="hidden" name="product[user_id]" value="<%=@user.id%>">
+  <button type="submit">Submit Item</button>
+  <input name="authenticity_token" type="hidden" value="token_value">
+</form>
+
+
+<form action="/back" method="POST">
+  <input type="Text" name="item[product_name]">
+  <input type="Text" name="item[description]">
+  <input type="Date" name="item[datetime]">
+
+  <button type="submit">Submit Item</button>
+</form>

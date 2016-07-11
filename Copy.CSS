@@ -1,0 +1,54 @@
+/*  NAVBAR  */
+
+li {
+  display: inline-block;
+}
+
+button {
+  display: inline-block;;
+}
+
+.top {
+  height: 20px;
+}
+
+ul {
+  display: inline-block;
+}
+
+.navbar-default {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.navbar-default .navbar-header .navbar-nav li a {
+  color: white;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.jumbotron {
+  padding-top: 140px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+
+}
+
+.navbar-default {
+  border-color: white;
+  background-color: transparent;
+}
+
+/* WELCOME VIEW */
+
+.welcome-view {
+  width: inherit;
+  height: 1000px;
+  background-image: url(./header.jpg);
+  background-size: cover;
+}

@@ -1,0 +1,6 @@
+<h1>It will take <%= @minutes %> minutes to read -></h1>
+<h2><%= @word_count %> words in <%= @text %></h2>
+<% @new_array.each_index do |index| %>
+  <h2><%=index + 1%>. <%=@new_array[index]%></h2>
+<%end%>
+<%= link_to "Home", "/" %>

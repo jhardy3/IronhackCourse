@@ -1,0 +1,35 @@
+li {
+  display: inline-block;
+  padding-top: 1px;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+body {
+background-image: url(https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/960x960/4b4c1f7c6678833b87f3719d90a92d67/shutterstock_134707556.jpg);
+  background-size: cover;
+}
+
+.btn-default {
+  height: 30px;
+}
+
+.navbar {
+  min-height:20px;
+}
+
+.nav-pic {
+  height: 30px;
+  display: block;
+  padding-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
